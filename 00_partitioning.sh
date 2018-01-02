@@ -54,11 +54,11 @@ mount -o noatime,ssd,space_cache=v2,compress=lzo,subvol=@ /dev/mapper/vg0-root /
 mkdir -p /mnt/boot
 mkdir -p /mnt/home
 mkdir -p /mnt/var/cache/pacman/pkg
-mkdir -p /mnt.snapshots
+mkdir -p /mnt/.snapshots
 mkdir -p /mnt/btrfs
 mount -o noatime,ssd,space_cache=v2,compress=lzo,subvol=@home /dev/mapper/vg0-root /mnt/home
 mount -o noatime,ssd,space_cache=v2,compress=lzo,subvol=@pkg /dev/mapper/vg0-root /mnt/var/cache/pacman/pkg/
 mount -o noatime,ssd,space_cache=v2,compress=lzo,subvol=@snapshots /dev/mapper/vg0-root /mnt/.snapshots
 mount -o noatime,ssd,space_cache=v2,compress=lzo,subvolid=5 /dev/mapper/vg0-root /mnt/btrfs
-mount /dev/sda1
+mount /dev/sda1 /mnt/boot
 swapon /dev/mapper/vg0-swap
