@@ -72,7 +72,9 @@ echo "#Install Grub..."
 pacman -S --needed --noconfirm grub
 echo "#"
 echo "#Configuring Grub..."
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:crypt0"/g' /etc/default/grub
+#testing
+sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/cryptdevice=\/dev\/sda2:crypt0/' /etc/default/grub
+#sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:crypt0"/g' /etc/default/grub
 read
 nano /etc/default/grub
 read
