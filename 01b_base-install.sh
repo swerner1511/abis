@@ -79,6 +79,11 @@ sed -ie 's/^[ \t]*//' tempUUID.txt
 # $UUIDtemp = Inhalt von tempUUID.txt
 TempUUID=$(<tempUUID.txt)
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID='"${TempUUID}"':crypt0 root=/dev/mapper/vg0-root"/g' /etc/default/grub
+cat tempUUID.txt
+read
+nano /etc/default/grub
+read
+nano /etc/default/grub
 echo "#"
 echo "#Cleaning up..."
 rm ~/tempUUID.txt
