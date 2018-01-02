@@ -54,7 +54,8 @@ echo "#########################"
 echo "# Set Hooks for ramdisk #"
 echo "#########################"
 echo "#Add scripts to ramdisk..."
-sed -i '/HOOKS="base udev autodetect modconf block filesystems keyboard fsck"/c\HOOKS="base udev autodetect modconf keyboard keymap block encrypt lvm2 filesystems fsck"' /etc/mkinitcpio.conf
+sed -i '/^HOOK/s/block/block keymap encrypt/' /etc/mkinitcpio.conf
+sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /etc/mkinitcpio.conf
 echo "#"
 echo "###################"
 echo "# Refresh ramdisk #"
