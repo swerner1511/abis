@@ -70,16 +70,7 @@ echo "#Install Grub..."
 pacman -S --needed --noconfirm grub
 echo "#"
 echo "#Configuring Grub..."
-# TODO : shorten the UUID-Part ^^
-# grep only UUID
-cryptsetup luksDump /dev/sda2 | grep UUID > tempUUID.txt
-# remove "UUID:" from string
-sed -ie 's/UUID:/ /g' tempUUID.txt
-# remove spaces and tabs from string
-sed -ie 's/^[ \t]*//' tempUUID.txt
-# $UUIDtemp = Inhalt von tempUUID.txt
-TempUUID=$(<tempUUID.txt)
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID='"${TempUUID}"':crypt0 root=/dev/mapper/vg0-root"/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:crypt0 root=/dev/mapper/vg0-root"/g' /etc/default/grub
 cat tempUUID.txt
 read
 nano /etc/default/grub
