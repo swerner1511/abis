@@ -78,9 +78,6 @@ read
 nano /etc/default/grub
 read
 echo "#"
-echo "#Cleaning up..."
-rm ~/tempUUID.txt
-echo "#"
 echo "#Install grub to disk..."
 grub-install /dev/sda
 echo "#"
