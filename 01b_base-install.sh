@@ -4,6 +4,8 @@
 # latest update 02.01.2018
 #
 # A script to prepare the harddisk for an archlinux installation
+
+echo "#"
 echo "############################"
 echo "# Mirrorlist Configuration #"
 echo "############################"
@@ -56,8 +58,6 @@ echo "#########################"
 echo "#Add scripts to ramdisk..."
 sed -i '/^HOOK/s/block/block keymap encrypt/' /etc/mkinitcpio.conf
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /etc/mkinitcpio.conf
-nano /etc/mkinitcpio.conf
-read
 echo "#"
 echo "###################"
 echo "# Refresh ramdisk #"
@@ -72,12 +72,7 @@ echo "#Install Grub..."
 pacman -S --needed --noconfirm grub
 echo "#"
 echo "#Configuring Grub..."
-#testing
 sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/s/quiet/cryptdevice=\/dev\/sda2:crypt0/' /etc/default/grub
-#sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=/dev/sda2:crypt0"/g' /etc/default/grub
-read
-nano /etc/default/grub
-read
 echo "#"
 echo "#Install grub to disk..."
 grub-install /dev/sda
