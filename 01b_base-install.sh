@@ -102,7 +102,7 @@ echo "# graphical driver... #"
 echo "#######################"
 pacman -S --needed --noconfirm xf86-video-intel
 #DE install script
-#sh ./02_de-install.sh
+sh ./02_de-install.sh
 echo "#"
 echo "###########################"
 echo "# create useraccount... #"
