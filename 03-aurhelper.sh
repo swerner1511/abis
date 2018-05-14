@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Created by S. W.
-# latest update 02.01.2018
+# latest update 14.05.2018
 #
-# A script to install an AUR-Helper (search for pacaur alternative)
+# A script to install an AUR-Helper (trizen)
+git clone https://aur.archlinux.org/trizen.git
+cd trizen
+makepkg -si
